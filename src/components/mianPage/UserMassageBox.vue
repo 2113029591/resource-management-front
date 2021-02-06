@@ -1,12 +1,12 @@
 <template>
   <div>
-
+    <p>userMassageBox</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: "ManagementPage"
+  name: "UserMassageBox"
 }
 </script>
 

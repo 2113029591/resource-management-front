@@ -1,19 +1,22 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Login from "@/views/Login";
-import ManagementPage from "@/views/ManagementPage";
+import MainPage from "@/views/MainPage";
+import MainBox from "@/components/mianPage/MainBox";
+import UserMassageBox from "@/components/mianPage/UserMassageBox";
 
 Vue.use(VueRouter)
 
 const routes=[
+    {path:"/",redirect:"/Login"},
+    {path:"/Login", component:Login},
     {
-        path:"/",
-        component:Login
+        path:"/MainPage",component:MainPage,
+        children:[
+            {path:"MainBox",component:MainBox},
+            {path:"UserMassageBox",component: UserMassageBox}
+        ]
     },
-    {
-        path:"ManagementPage",
-        component: ManagementPage
-    }
 ]
 
 const router=new VueRouter({

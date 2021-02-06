@@ -1,4 +1,4 @@
-<template >
+<template>
   <div id="background">
     <div class="loginPage">
       <div class="title">资源管理</div>
@@ -12,7 +12,7 @@
               <div class="forget">忘记密码？</div>
             </div>
             <div class="toLogin">
-              <button class="btn">登录</button>
+              <button class="btn" @click="isLogin">登录</button>
               <button class="btn">注册</button>
             </div>
           </div>
@@ -41,6 +41,11 @@ export default {
       PassPlaceholder:'密码',
       passInput:'password',
     }
+  },
+  methods:{
+    isLogin:function (){
+      this.$router.push('/MainPage')
+    }
   }
 }
 </script>
@@ -49,8 +54,9 @@ export default {
 .loginPage{
   display: flex;
   flex-direction: column;
-  padding-left: 3em;
-  padding-top: 2em;
+  background: skyblue;
+  /*padding-left: 3em;*/
+  /*padding-top: 2em;*/
 }
 .title{
   font-size: 4em;
