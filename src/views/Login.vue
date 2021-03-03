@@ -1,5 +1,5 @@
 <template>
-  <div id="background">
+  <div id="background" :style="'height:'+fullHeight+'px;'">
     <div class="loginPage">
       <div class="title">资源管理</div>
       <div class="mainSection">
@@ -40,12 +40,38 @@ export default {
       },
       PassPlaceholder:'密码',
       passInput:'password',
+
+      fullHeight:document.documentElement.clientHeight
     }
   },
   methods:{
     isLogin:function (){
       this.$router.push('/MainPage')
+    },
+    get_bodyHeight(){
+      const that=this
+      window.onresize=()=>{
+        return(()=>{
+          window.fullHeight=document.documentElement.clientHeight
+          that.fullHeight=window.fullHeight
+        })()
+      }
     }
+  },
+  watch:{
+    fullHeight(val){
+      if(!this.timer){
+        this.fullHeight=val
+        this.timer=true
+        let that=this
+        setTimeout(function (){
+          that.timer=false
+        },400)
+      }
+    }
+  },
+  mounted() {
+    this.get_bodyHeight()
   }
 }
 </script>
@@ -55,8 +81,6 @@ export default {
   display: flex;
   flex-direction: column;
   background: skyblue;
-  /*padding-left: 3em;*/
-  /*padding-top: 2em;*/
 }
 .title{
   font-size: 4em;

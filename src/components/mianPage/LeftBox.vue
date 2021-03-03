@@ -34,7 +34,7 @@ export default {
 .left-box{
   background: rebeccapurple;
   width: 150px;
-  height: 500px;
+  height: auto;
   display: flex;
   flex-direction: column;
   /*justify-content: center;*/
